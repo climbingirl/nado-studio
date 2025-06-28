@@ -1,0 +1,28 @@
+{
+  "name": "nado-studio",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint --ext .js,.jsx src/",
+    "format": "prettier --write 'src/**/*.{js,jsx}'"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.30.0",
+    "eslint": "^9.30.0",
+    "eslint-plugin-prettier": "^5.5.1",
+    "globals": "^16.2.0",
+    "prettier": "^3.6.2",
+    "vite": "^7.0.0"
+  },
+  "dependencies": {
+    "@fontsource/open-sans": "^5.2.6",
+    "@fontsource/playfair-display": "^5.2.6",
+    "@glidejs/glide": "^3.7.1",
+    "normalize-scss": "^8.0.0",
+    "sass": "^1.89.2"
+  }
+}

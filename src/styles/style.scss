@@ -1,0 +1,60 @@
+@use 'normalize-scss/sass/normalize/import-now';
+@use './fonts.scss';
+
+:root {
+  --color-bg: #353436;
+  --color-accent: #e2d1a6;
+  --color-white: #fff;
+  --color-black: #111;
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font:
+    400 16px/1.5 'Open Sans',
+    Arial,
+    sans-serif;
+  color: var(--color-white);
+  background-color: var(--color-bg);
+}
+
+a {
+  display: inline-block;
+  color: var(--color-white);
+  text-decoration: none;
+  transition: 0.3s;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: var(--color-accent);
+  }
+}
+
+.button-primary {
+  font:
+    400 18px/1 'Open Sans',
+    Arial,
+    sans-serif;
+  border: none;
+  padding: 8px 55px;
+  color: var(--color-white);
+  background-color: var(--color-black);
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover,
+  &:active {
+    background-color: var(--color-accent);
+  }
+}
