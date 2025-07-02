@@ -290,6 +290,7 @@ a {
 
 .main {
   position: relative;
+  overflow: hidden;
 
   .glide {
     position: relative;
@@ -378,9 +379,6 @@ a {
 
     &--open {
       transform: translateY(0);
-      .info-panel__content {
-        height: auto;
-      }
 
       .info-panel__btn::after {
         background-image: url(../images/icons/angle-bottom.png);
@@ -413,8 +411,6 @@ a {
 
     &__content {
       display: flex;
-      height: 0;
-      overflow: hidden;
     }
 
     &__item {
