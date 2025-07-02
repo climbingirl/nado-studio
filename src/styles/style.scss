@@ -106,6 +106,41 @@ a {
   margin: 0 auto;
 }
 
+.burger__menu {
+  display: none;
+  transition: 0.3s;
+  cursor: pointer;
+  z-index: 40;
+
+  &:hover {
+    .burger__menu-line {
+      background-color: var(--color-accent);
+    }
+  }
+
+  &-line {
+    width: 32px;
+    height: 2px;
+    margin-bottom: 7px;
+    background-color: var(--color-white);
+  }
+
+  &--open {
+    transform: rotate(45deg);
+    transition: all 0.3s ease-in-out;
+
+    .burger__menu-line:nth-child(1) {
+      transform: translateY(7px);
+    }
+    .burger__menu-line:nth-child(2) {
+      opacity: 0;
+    }
+    .burger__menu-line:nth-child(3) {
+      transform: translateY(-11px) rotate(90deg);
+    }
+  }
+}
+
 .main-screen__wrapper {
   position: relative;
 }
@@ -241,8 +276,11 @@ a {
     cursor: pointer;
 
     &::after {
-      content: url(../images/icons/lock.png);
+      content: '';
+      background-image: url(../images/icons/lock.png);
       display: inline-block;
+      background-repeat: no-repeat;
+      background-size: contain;
       width: 9px;
       height: 13px;
       margin-left: 9px;
@@ -343,7 +381,7 @@ a {
       }
 
       .info-panel__btn::after {
-        content: url(../images/icons/angle-bottom.png);
+        background-image: url(../images/icons/angle-bottom.png);
       }
     }
 
@@ -354,11 +392,16 @@ a {
       justify-content: center;
       align-items: center;
       margin: 0 auto;
-      padding: 5px 24px;
+      padding: 7px 23px 2px 23px;
       cursor: pointer;
 
       &::after {
-        content: url(../images/icons/angle-top.png);
+        content: '';
+        background-image: url(../images/icons/angle-top.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 40px;
+        height: 20px;
       }
     }
 
@@ -424,7 +467,7 @@ a {
 }
 
 .about {
-  padding: 25px 0 15px;
+  padding: 25px 0 12px;
 
   &__container {
     max-width: 970px;
@@ -433,7 +476,7 @@ a {
   }
 
   &__item {
-    flex-basis: 20.6%;
+    max-width: 192px;
   }
 
   &__title {
@@ -445,14 +488,15 @@ a {
   &__desc {
     font-size: 12px;
     font-weight: 300;
-    line-height: 1.5;
+    line-height: 1.4;
   }
 
   .newsletter {
     &__form {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 9px;
+      padding-top: 3px;
     }
 
     &__input:first-child {
@@ -462,7 +506,7 @@ a {
 }
 
 .footer {
-  padding: 10px 0 15px;
+  padding: 10px 0 10px;
 
   &__container {
     display: flex;
@@ -472,17 +516,15 @@ a {
 
   &__company {
     &-info {
+      display: flex;
       font-size: 12px;
-    }
-
-    &-text {
-      margin-right: 13px;
+      column-gap: 16px;
     }
   }
 
   &__social {
     margin-left: auto;
-    margin-right: 77px;
+    margin-right: 76px;
 
     &_icon {
       margin-right: 5px;
@@ -562,7 +604,7 @@ a {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 8px 10px 25px;
+    padding: 8px 75px 25px;
     max-width: 595px;
     width: 100%;
     background-color: var(--color-bg);
@@ -604,7 +646,6 @@ a {
   }
 
   &__inner {
-    max-width: 440px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -628,5 +669,543 @@ a {
       Arial,
       sans-serif;
     color: var(--color-gray);
+  }
+}
+
+// media queries
+
+@media (max-width: 1100px) {
+  .footer {
+    &__container {
+      flex-wrap: wrap;
+      justify-content: center;
+      row-gap: 15px;
+    }
+
+    &__company-info {
+      flex-basis: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+      order: 1;
+    }
+
+    &__social {
+      order: 0;
+      margin: 0;
+      flex-basis: 100%;
+      text-align: center;
+    }
+
+    &__langs {
+      order: 2;
+      flex-basis: 100%;
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .header {
+    &__logo {
+      &-img {
+        width: 65px;
+        height: 65px;
+      }
+
+      &-text {
+        font-size: 22px;
+
+        &--accent {
+          font-size: 28px;
+          font-weight: 700;
+        }
+      }
+    }
+
+    &__menu {
+      &-item {
+        padding-left: 13px;
+
+        &:hover &--submenu {
+          padding-top: 15px;
+        }
+      }
+    }
+
+    &-link {
+      font-size: 17px;
+    }
+
+    &__submenu {
+      padding: 5px 9px;
+
+      &-link {
+        font-size: 15px;
+      }
+    }
+  }
+
+  .main {
+    .glide {
+      .slide {
+        &__content {
+          max-width: 450px;
+          padding: 15px 10px 15px 20px;
+        }
+
+        &__title {
+          font-size: 25px;
+          margin-bottom: 15px;
+        }
+
+        &__desc {
+          font-size: 16px;
+        }
+      }
+
+      &__bullets {
+        bottom: 30px;
+      }
+    }
+
+    .info-panel {
+      &__btn {
+        padding: 5px 15px 2px 15px;
+
+        &::after {
+          width: 36px;
+          height: 18px;
+        }
+      }
+
+      &__item {
+        padding: 7px 10px 5px 10px;
+      }
+
+      &__title {
+        font-size: 25px;
+      }
+
+      &__desc {
+        font-size: 15px;
+        line-height: 1.4;
+        margin: 9px 0;
+      }
+
+      &__link {
+        font-size: 16px;
+        line-height: 1.3;
+      }
+    }
+  }
+
+  .about {
+    padding-bottom: 20px;
+
+    &__container {
+      flex-wrap: wrap;
+      justify-content: center;
+      row-gap: 15px;
+      column-gap: 50px;
+    }
+
+    &__item {
+      max-width: 260px;
+      width: 100%;
+    }
+  }
+
+  .modal {
+    &__content {
+      max-width: 500px;
+      padding: 15px 25px;
+    }
+
+    &__close-btn {
+      font-size: 40px;
+    }
+
+    &__title {
+      font-size: 20px;
+    }
+
+    &__subtitle {
+      font-size: 16px;
+    }
+
+    &__form {
+      gap: 9px;
+    }
+
+    &__info {
+      font-size: 11px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .button-primary {
+    font-size: 15px;
+    padding: 7px 40px;
+  }
+
+  .input-primary {
+    font-size: 12px;
+    padding: 5px;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+
+  .burger__menu {
+    display: block;
+  }
+
+  .header {
+    padding: 18px 0;
+
+    &__container {
+      align-items: baseline;
+    }
+
+    &__nav {
+      &--open {
+        top: 0;
+      }
+
+      position: fixed;
+      top: -100%;
+      left: 0;
+      right: 0;
+      padding: 50px 20px;
+      background-color: var(--color-bg);
+      z-index: 20;
+      transition: 0.5s;
+    }
+
+    &__menu {
+      flex-direction: column;
+      align-items: center;
+      row-gap: 25px;
+
+      &-item {
+        padding-left: 0;
+        text-align: center;
+      }
+
+      &-item--submenu {
+        position: static;
+        height: auto;
+      }
+    }
+
+    &__submenu-item {
+      padding: 5px 0;
+
+      &:last-child {
+        border-bottom: 1px solid var(--color-white);
+      }
+    }
+
+    &__login-btn {
+      right: 10px;
+      top: -10px;
+      font-size: 12px;
+
+      &::after {
+        margin-left: 5px;
+        width: 8px;
+        height: 11px;
+      }
+    }
+
+    &__logo {
+      &-img {
+        width: 50px;
+        height: 50px;
+        margin-right: 5px;
+      }
+
+      &-text {
+        font-size: 20px;
+
+        &--accent {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+
+  .main {
+    .glide {
+      .slide {
+        &__content {
+          max-width: 350px;
+          padding: 12px 10px 12px 15px;
+          transform: translateY(-100%);
+        }
+
+        &__title {
+          font-size: 20px;
+          margin-bottom: 10px;
+        }
+
+        &__desc {
+          font-size: 14px;
+          margin-top: 10px;
+        }
+      }
+
+      &__bullet {
+        width: 12px;
+        height: 13px;
+        margin: 0 2px;
+      }
+    }
+
+    .info-panel {
+      &__btn {
+        padding: 5px 13px 2px 13px;
+
+        &::after {
+          width: 30px;
+          height: 15px;
+        }
+      }
+
+      &.container {
+        padding: 0;
+      }
+
+      &__item {
+        padding: 7px 10px 5px 10px;
+      }
+
+      &__title {
+        font-size: 23px;
+        margin: 0;
+        margin-bottom: 5px;
+      }
+
+      &__desc {
+        font-size: 14px;
+        line-height: 1.3;
+        margin: 0;
+        margin-bottom: 5px;
+      }
+
+      &__link {
+        font-size: 15px;
+      }
+    }
+  }
+
+  .about {
+    &__container {
+      row-gap: 10px;
+      column-gap: 40px;
+    }
+
+    &__item {
+      max-width: 220px;
+    }
+  }
+
+  .footer {
+    &__container {
+      row-gap: 10px;
+    }
+
+    &__company-info {
+      flex-basis: 70%;
+      font-size: 11px;
+    }
+
+    &__lang {
+      font-size: 12px;
+      height: 12px;
+    }
+  }
+
+  .modal {
+    &__content {
+      max-width: 300px;
+    }
+
+    &__inner {
+      flex-direction: column;
+      align-items: center;
+      row-gap: 20px;
+    }
+
+    &__close-btn {
+      font-size: 35px;
+    }
+
+    &__title {
+      font-size: 18px;
+    }
+
+    &__subtitle {
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .button-primary {
+    font-size: 14px;
+    padding: 6px 30px;
+  }
+
+  .input-primary {
+    font-size: 11px;
+    padding: 4px;
+  }
+  .container {
+    padding: 0 10px;
+  }
+
+  .burger__menu {
+    &-line {
+      width: 25px;
+      margin-bottom: 5px;
+    }
+
+    &--open {
+      .burger__menu-line:nth-child(1) {
+        transform: translateY(3px);
+      }
+    }
+  }
+
+  .header {
+    padding: 15px 0;
+
+    &__login-btn {
+      right: 5px;
+      font-size: 10px;
+
+      &::after {
+        width: 7px;
+        height: 10px;
+      }
+    }
+
+    &__logo {
+      &-img {
+        width: 40px;
+        height: 40px;
+        margin-right: 3px;
+      }
+
+      &-text {
+        font-size: 15px;
+
+        &--accent {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  .main {
+    .glide {
+      .slide {
+        &__content {
+          left: 0;
+          margin: 0 auto;
+          max-width: 280px;
+          padding: 12px 10px;
+        }
+
+        &__title {
+          font-size: 17px;
+          margin-bottom: 8px;
+        }
+
+        &__desc {
+          font-size: 14px;
+          margin-top: 8px;
+        }
+      }
+
+      &__bullet {
+        width: 10px;
+        height: 11px;
+      }
+    }
+
+    .info-panel {
+      &__btn {
+        padding: 5px 10px 2px 10px;
+      }
+
+      &__item {
+        padding: 7px 10px 5px 10px;
+      }
+
+      &__title {
+        font-size: 18px;
+        margin-bottom: 8px;
+        min-height: 0;
+      }
+
+      &__desc {
+        font-size: 13px;
+        line-height: 1.2;
+      }
+
+      &__link {
+        font-size: 13px;
+      }
+    }
+  }
+
+  .about {
+    &__container {
+      row-gap: 10px;
+      column-gap: 40px;
+    }
+
+    &__title {
+      font-size: 13px;
+      margin: 10px 0;
+    }
+
+    &__desc {
+      margin-bottom: 5px;
+    }
+  }
+
+  .footer {
+    &__company-info {
+      font-size: 10px;
+    }
+
+    &__lang {
+      font-size: 11px;
+      height: 11px;
+    }
+  }
+
+  .modal {
+    &__content {
+      max-width: 280px;
+    }
+
+    &__close-btn {
+      font-size: 30px;
+    }
+
+    &__title {
+      font-size: 16px;
+    }
+
+    &__subtitle {
+      font-size: 12px;
+    }
   }
 }

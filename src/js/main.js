@@ -39,3 +39,13 @@ const openModal = () => {
 reservationBtn.addEventListener('click', openModal);
 modalCloseBtn.addEventListener('click', closeModal);
 modalOverlay.addEventListener('click', closeModal);
+
+// burger menu
+
+const burgerMenu = document.getElementById('burger-menu');
+const headerNav = document.getElementById('header-nav');
+
+burgerMenu.addEventListener('click', () => {
+  burgerMenu.classList.toggle('burger__menu--open');
+  headerNav.classList.toggle('header__nav--open');
+});
