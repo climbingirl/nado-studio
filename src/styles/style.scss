@@ -373,11 +373,13 @@ a {
     bottom: 0;
     left: 0;
     right: 0;
+    transform: translateY(100%);
+    transition: 0.5s;
 
     &--open {
+      transform: translateY(0);
       .info-panel__content {
         height: auto;
-        overflow: visible;
       }
 
       .info-panel__btn::after {
@@ -386,6 +388,10 @@ a {
     }
 
     &__btn {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -100%);
       border: none;
       background-color: var(--color-white);
       display: flex;
