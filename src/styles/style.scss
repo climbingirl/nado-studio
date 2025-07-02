@@ -899,6 +899,10 @@ a {
       &-item {
         padding-left: 0;
         text-align: center;
+
+        &:hover &--submenu {
+          padding-top: 0;
+        }
       }
 
       &-item--submenu {
